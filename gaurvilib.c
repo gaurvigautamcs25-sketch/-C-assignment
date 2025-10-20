@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include "gaurvilib.h"
+
+int findMaxIndex(int arr[], int size) {
+    int maxIdx = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > arr[maxIdx]) {
+			maxIdx = i;
+		}
+    }
+    return maxIdx;
+}
+
+int findMinIndex(int arr[], int size) {
+    int minIdx = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < arr[minIdx]){
+			minIdx = i;
+		}
+    }
+    return minIdx;
+}
+
+float findAverage(int arr[], int size) {
+    int sum = 0;
+    for (int i = 0; i < size; i++){
+		sum += arr[i];
+}
+    return (float)sum / size;
+}
+
+void displayArray(int arr[], int size) {
+    printf("Array: ");
+    for (int i = 0; i < size; i++){
+	printf("%d ", arr[i]);
+	}
+    printf("\n");
+}
+
+void reverseArray(int arr[], int size) {
+    int temp;
+    for (int i = 0; i < size / 2; i++) {
+        temp = arr[i];
+        arr[i] = arr[size - i - 1];
+        arr[size - i - 1] = temp;
+    }
+}
+
+
+void sortArray(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j]; 
+				arr[j] = arr[j + 1]; 
+				arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int linearSearch(int arr[], int size, int value) {
+    for (int i = 0; i < size; i++){
+        if (arr[i] == value){
+		  	return i;
+	   	}
+	}	
+    return -1;
+}
